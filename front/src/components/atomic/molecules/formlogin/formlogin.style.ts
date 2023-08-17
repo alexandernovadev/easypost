@@ -5,8 +5,7 @@ export const FormLoginStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-
+    flex-direction: column;    
  
     .title .subtitle .titleForm{
        margin-bottom: 5px;

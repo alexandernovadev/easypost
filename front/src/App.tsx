@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { FormLogin } from './components/atomic/molecules/formlogin/FormLogin'
+import Routes from './router'
 
-const StyledApp = styled.div`
+export const StyledApp = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   width: 100vw;
   height: 100vh;
@@ -11,21 +11,7 @@ const StyledApp = styled.div`
 function App() {
   return (
     <StyledApp>
-      <div
-        style={{
-          width: '320px',
-          position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          left: '10%',
-          border: '2px solid purple',
-          padding: 40,
-          gap: 20,
-          borderRadius: 12,
-        }}
-      >
-        <FormLogin />
-      </div>
+      <Routes />
     </StyledApp>
   )
 }
