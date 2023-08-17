@@ -3,7 +3,6 @@ import cors from "cors"
 import bodyParser from "body-parser"
 import mongoose from "mongoose"
 
-import taskRoutes from "./infrastructure/routes/task.route"
 import userRoutes from "./infrastructure/routes/user.route"
 import authRoutes from "./infrastructure/routes/auth.route"
 
@@ -23,7 +22,6 @@ mongoose
 app.use(cors())
 app.use(bodyParser.json())
 
-app.use("/api/tasks", taskRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 

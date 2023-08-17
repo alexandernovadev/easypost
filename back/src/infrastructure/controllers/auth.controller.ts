@@ -36,11 +36,6 @@ export const register = async (
 ) => {
   try {
     const userData = req.body
-
-    if (!userData.email || !userData.password) {
-      return res.status(400).json({ error: 'Email and password are required.' })
-    }
-
     const usertoken = await sessionService.register(userData)
 
     return res.status(201).json({ token: usertoken })

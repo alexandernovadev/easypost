@@ -8,7 +8,7 @@ const userSchema = Joi.object({
     .messages({
       'string.base': '"name" should be a type of string',
       'string.pattern.base': '"name" should contain only letters and spaces',
-      'any.required': 'Este campo es requerido',
+      'any.required': 'Nombre es requerido',
     }),
   email: Joi.string()
     .email()
@@ -16,7 +16,7 @@ const userSchema = Joi.object({
     .messages({
       'string.base': 'Por favor ingresa un email válido',
       'string.email': 'Por favor ingresa un email válido',
-      'any.required': 'Este campo es requerido',
+      'any.required': 'Email es requerido',
     }),
   password: Joi.string()
     .min(8)
@@ -24,7 +24,7 @@ const userSchema = Joi.object({
     .messages({
       'string.base': '"password" should be a type of string',
       'string.min': 'La contraseña debe tener mínimo 8 caracteres',
-      'any.required': 'Este campo es requerido',
+      'any.required': 'Password es requerido',
     }),
 })
 
