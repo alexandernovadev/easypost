@@ -27,13 +27,13 @@ export const FormLogin = () => {
       </section>
 
       <section className="buttonpluslin">
-        <Button text="SIGN UP" />
+        <Button text="SIGN IN" />
 
         <div>
           <Typography variant="capion" text="Don’t have an account?" />{' '}
           <Anchor
             text="Sing up Here"
-            href="#"
+            href="/register"
             type="BLANCK"
             variant="default"
           />

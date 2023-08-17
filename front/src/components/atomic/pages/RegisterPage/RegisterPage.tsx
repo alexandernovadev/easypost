@@ -1,4 +1,4 @@
-import { FormLogin } from '../../molecules/formlogin/FormLogin'
+import { FormRegister } from '../../molecules/formregister/FormRegister'
 import { PageLoginStyle } from './registerPage.style'
 
 export const RegisterPage = () => {
@@ -14,7 +14,7 @@ export const RegisterPage = () => {
           gap: 20
         }}
       >
-        <FormLogin />
+        <FormRegister />
       </div>
     </PageLoginStyle>
   )

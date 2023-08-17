@@ -7,8 +7,9 @@ const index = () => {
     <BrowserRouter>
       <Routes>
         <Route>
-          <Route path="/" element={<RegisterPage />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
