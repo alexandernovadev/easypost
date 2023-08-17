@@ -5,6 +5,7 @@ import mongoose from "mongoose"
 
 import userRoutes from "./infrastructure/routes/user.route"
 import authRoutes from "./infrastructure/routes/auth.route"
+import postRoutes from "./infrastructure/routes/post.route"
 
 import { errorHandler } from "./infrastructure/middlewares/errorHandler"
 
@@ -24,6 +25,7 @@ app.use(bodyParser.json())
 
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
+app.use("/api/posts", postRoutes)
 
 // Errors Midleware
 app.use(errorHandler)

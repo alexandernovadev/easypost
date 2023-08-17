@@ -1,5 +1,5 @@
 export interface IPost {
-  id: number  
+  id_: number | string  
   title: string
   content: string
   createAt: number
