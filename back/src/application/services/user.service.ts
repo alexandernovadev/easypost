@@ -3,6 +3,7 @@ import { IUser } from '../../domain/entities/user.entity'
 import { NotFoundError } from '../../domain/errors/NotFoundError'
 import { IUserRepository } from '../../domain/interfaces/user.repository.interface'
 import { ValidationError } from '../../domain/errors/ValidationError'
+import bcrypt from 'bcrypt'
 
 export class UserService {
   constructor(private userRepository: IUserRepository) {}
@@ -21,6 +22,9 @@ export class UserService {
 
   async createUser(user: IUser) {
     try {
+      const salt = await bcrypt.genSalt(10)
+      user.password = await bcrypt.hash(user.password, salt)
+
       return await this.userRepository.create(user)
     } catch (error) {
       if (error instanceof MongooseError) {
@@ -28,7 +32,7 @@ export class UserService {
           String(error.message.replace('User validation failed:', '').trim())
         )
       }
-      throw error // Si no es un error de validación, lo lanzamos tal cual
+      throw error
     }
   }
 
@@ -38,5 +42,9 @@ export class UserService {
 
   async deleteUser(id: string) {
     return await this.userRepository.delete(id)
+  }
+
+  async findUserByEmail(email: string): Promise<IUser | undefined> {
+    return await this.userRepository.findUserByEmail(email)
   }
 }

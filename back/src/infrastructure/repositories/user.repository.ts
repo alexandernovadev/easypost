@@ -33,4 +33,9 @@ export class UserRepository implements IUserRepository {
   async delete(id: string): Promise<IUser | null> {
     return await User.findByIdAndDelete(id)
   }
+
+  async findUserByEmail(email: string): Promise<IUser | undefined> {
+    const user = await User.findOne({ email })
+    return user || undefined
+  }
 }

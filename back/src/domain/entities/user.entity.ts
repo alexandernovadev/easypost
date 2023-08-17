@@ -4,3 +4,9 @@ export interface IUser {
   password: string
   createdAt: number
 }
+
+export interface IUserLogin {
+  email: string
+  password: string
+}
+
