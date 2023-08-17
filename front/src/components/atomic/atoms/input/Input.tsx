@@ -3,7 +3,12 @@ import { InputProps } from './input.type'
 import eyeIcon from '../../../../assets/icons/eye.png'
 import { useState } from 'react'
 
-export const Input = ({ label, type }: InputProps) => {
+export const Input = ({
+  label,
+  type,
+  placeholder = 'text',
+  error = '',
+}: InputProps) => {
   const [typeState, setTypeState] = useState('text')
 
   const handleTypeInput = () => {
@@ -13,10 +18,10 @@ export const Input = ({ label, type }: InputProps) => {
   }
 
   return (
-    <InputStyle type={type}>
+    <InputStyle type={type} error={error}>
       <label>{label}</label>
 
-      <input type={typeState} />
+      <input type={typeState} placeholder={placeholder} />
       {type == 'password' && (
         <>
           <img
@@ -28,6 +33,7 @@ export const Input = ({ label, type }: InputProps) => {
           />
         </>
       )}
+      {error.length > 0 && <span>{error}</span>}
     </InputStyle>
   )
 }

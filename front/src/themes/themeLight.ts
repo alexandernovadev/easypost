@@ -11,7 +11,8 @@ export const themeLight = {
     textGray200:'#5F5E5E',
     textGray300:'#474747',
     textGray400:'#666',
-    textContrast:'#0E2248'
+    textContrast:'#0E2248',
+    errorColor:'#FE4B4B'
   },
   fonts: {
     primary: 'Roboto, sans-serif',
