@@ -5,9 +5,22 @@ import { NotFoundError } from '../../domain/errors/NotFoundError'
 
 const postService = new PostService(new PostRepository())
 
-export const getAllPosts = async (_req: Request, res: Response) => {
-  const posts = await postService.getAllPosts()
-  res.json(posts)
+export const getAllPosts = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const filters = {
+      title: req.query.title as string,
+      createAt: Number(req.query.createAt),
+      user: req.query.user as string,
+    }
+    const posts = await postService.getAllPosts(filters)
+    res.status(200).json(posts)
+  } catch (error) {
+    next(error)
+  }
 }
 
 export const createPost = async (

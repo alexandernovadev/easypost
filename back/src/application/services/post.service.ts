@@ -5,8 +5,12 @@ import { IPostRepository } from '../../domain/interfaces/post.repository.interfa
 export class PostService {
   constructor(private postRepository: IPostRepository) {}
 
-  async getAllPosts(): Promise<IPost[]> {
-    return await this.postRepository.getAll()
+  async getAllPosts(filters?: {
+    title?: string
+    createAt?: number
+    user?: string
+  }): Promise<IPost[]> {
+    return await this.postRepository.getAll(filters)
   }
 
   async getPost(id: string): Promise<IPost> {

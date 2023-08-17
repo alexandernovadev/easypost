@@ -8,18 +8,37 @@ const PostSchema: Schema = new Schema({
   title: { type: String, required: true },
   content: { type: String, required: true },
   createAt: { type: Number, required: true },
-  user: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'User', 
-    required: true
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
   }, // esto asume que tienes un modelo 'User' en tu base de datos de MongoDB
 })
 
 const Post = model<IMongoPost>('Post', PostSchema)
 
 export class PostRepository implements IPostRepository {
-  async getAll(): Promise<IPost[]> {
-    return await Post.find().populate('user') // .populate('user') si deseas obtener detalles completos del usuario
+  async getAll(filters?: {
+    title?: string
+    createAt?: number
+    user?: string
+  }): Promise<IPost[]> {
+    const query: any = {}
+
+    if (filters?.title) {
+      query.title = new RegExp(filters.title.toLowerCase(), 'i') 
+      // i para hacer la búsqueda insensible a mayúsculas y minúsculas
+    }
+
+    if (filters?.createAt) {
+      query.createAt = filters.createAt
+    }
+
+    if (filters?.user) {
+      query.user = filters.user
+    }
+
+    return await Post.find(query).populate('user')
   }
 
   async get(id: string): Promise<IPost | null> {
