@@ -5,6 +5,9 @@ import { Button } from '../../atoms/button/Button'
 import { Input } from '../../atoms/input/Input'
 import logo from '../../../../assets/imagelogo.svg'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import Axios from '../../../../api/backOne'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 type InputsLogin = {
   name: string
@@ -22,8 +25,35 @@ export const FormRegister = () => {
   } = useForm<InputsLogin>()
   // console.log(errors)
 
-  const onSubmit: SubmitHandler<InputsLogin> = (data) => {
-    console.log('ehre', { data })
+  const navigate = useNavigate()
+
+  const [errorForm, setErrorForm] = useState('')
+
+  const onSubmit: SubmitHandler<InputsLogin> = async (data) => {
+    setErrorForm('')
+
+    const { name, email, password } = data
+
+    try {
+      const response = await Axios.post('/auth/register', {
+        name,
+        email,
+        password,
+      })
+      console.log('Response from server:', response.data)
+
+      const { token } = response.data
+      if (token) {
+        localStorage.setItem('token', token)
+      }
+      navigate('/allposthome')
+
+      
+    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      setErrorForm(error.response.data.message || 'Invalid password or email')
+    }
   }
 
   // Watchers
@@ -84,6 +114,10 @@ export const FormRegister = () => {
                 message: 'Please provide a password',
                 value: true,
               },
+              minLength: {
+                message: 'The field should be min 8 characters',
+                value: 8,
+              },
             })}
             type="password"
             placeholder="•••••••••"
@@ -96,15 +130,22 @@ export const FormRegister = () => {
             {...register('confirmPassword', {
               validate: (value) =>
                 value === passwordW || 'The passwords do not match',
+              required: {
+                message: 'This field is required',
+                value: true,
+              },
             })}
           />
         </section>
 
         <section className="buttonpluslin">
           <Button text="SIGN UP" type="submit" />
-          <div className="errorFormL">
-            <span>Invalid email or password</span>
-          </div>
+
+          {errorForm.length > 0 && (
+            <div className="errorFormL">
+              <span>Invalid email or password</span>
+            </div>
+          )}
           <div>
             <Typography variant="capion" text="Already have an account? " />{' '}
             <Anchor

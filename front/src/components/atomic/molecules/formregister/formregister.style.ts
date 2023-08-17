@@ -25,6 +25,7 @@ export const FormRegisterStyle = styled.div`
 
     div {
       text-align: right;
+      margin-top: 28px;
     }
   }
   .errorFormL {
@@ -32,7 +33,7 @@ export const FormRegisterStyle = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 8px;
-    margin-bottom: 28px;
+
 
     span {
       color: ${({ theme }) => theme.colors.errorColor};
