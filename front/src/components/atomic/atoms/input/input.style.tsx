@@ -35,6 +35,8 @@ export const InputStyle = styled.div<InputPropStyle>`
       font-weight: 500;
       line-height: normal;
     }
+
+  
   }
   img {
     position: absolute;

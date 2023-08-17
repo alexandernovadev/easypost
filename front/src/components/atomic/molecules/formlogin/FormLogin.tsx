@@ -10,24 +10,27 @@ export const FormLogin = () => {
     <FormLoginStyle>
       <section className="imgtiles">
         <img src={logo} alt="logo" />
-        <div className='title'>
+        <div className="title">
           <Typography variant="title" text="Easy Media" />
         </div>
-        <div className='subtitle'>
+        <div className="subtitle">
           <Typography variant="subtitle" text="Now, share is easy" />{' '}
         </div>
-        <div className='titleForm'>
+        <div className="titleForm">
           <Typography variant="titleForm" text="Sign In" />{' '}
         </div>
       </section>
 
       <section className="inputs">
-        <Input label="email" placeholder='example@email.com' />
-        <Input label="password" type="password" placeholder='•••••••••'/>
+        <Input label="email" placeholder="example@email.com" />
+        <Input label="password" type="password" placeholder="•••••••••" />
       </section>
 
       <section className="buttonpluslin">
         <Button text="SIGN IN" />
+        <div className="errorFormL">
+          <span>Invalid email or password</span>
+        </div>
 
         <div>
           <Typography variant="capion" text="Don’t have an account?" />{' '}

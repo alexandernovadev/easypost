@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { ButtonProps } from './button.type'
 
-export const ButtonStyle = styled.div<ButtonProps>`
+export const ButtonStyle = styled.button<ButtonProps>`
   display: flex;
   width: 100%;
   justify-content: center;
@@ -9,6 +9,8 @@ export const ButtonStyle = styled.div<ButtonProps>`
   height: 30px;
   text-align: center;
   padding: 0;
+  outline: none;
+  border: none;
 
   font-size: 20px;
   font-weight: 400;

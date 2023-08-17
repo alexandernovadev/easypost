@@ -3,6 +3,7 @@ export interface InputProps {
   type?: 'default' | 'password'
   placeholder?:string ,
   error?: string
+  props?: React.InputHTMLAttributes<HTMLInputElement>
 }
 
 
