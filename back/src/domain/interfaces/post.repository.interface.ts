@@ -6,7 +6,7 @@ export interface IPostRepository {
     createAt?: number;
     user?: string;
     limit?: number;  
-    offset?: number; 
+    page?: number; 
   }): Promise<{ posts: IPost[]; totalCount: number }>;
 
   get(id: string): Promise<IPost | null>

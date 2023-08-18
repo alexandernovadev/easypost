@@ -23,13 +23,12 @@ export class PostRepository implements IPostRepository {
     createAt?: number
     user?: string
     limit?: number
-    offset?: number
+    page?: number
   }): Promise<{ posts: IPost[]; totalCount: number }> {
     const query: any = {}
 
     if (filters?.title) {
       query.title = new RegExp(filters.title.toLowerCase(), 'i')
-      // i para hacer la búsqueda insensible a mayúsculas y minúsculas
     }
 
     if (filters?.createAt) {
@@ -41,7 +40,7 @@ export class PostRepository implements IPostRepository {
     }
 
     const limit = filters?.limit || 10
-    const offset = filters?.offset ? (filters.offset - 1) * limit : 0
+    const offset = filters?.page ? (filters.page - 1) * limit : 0
 
     const posts = await Post.find(query)
       .skip(offset)
