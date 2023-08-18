@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RegisterPage } from '../components/atomic/pages/RegisterPage/RegisterPage';
 import { LoginPage } from '../components/atomic/pages/LoginPage/LoginPage';
-import { AllPostHome } from '../components/atomic/pages/AllPostHome/AllPostHome';  // Asegúrate de importar estos componentes.
+import { AllPostHomePage } from '../components/atomic/pages/AllPostHome/AllPostHomePage';  // Asegúrate de importar estos componentes.
 import { RequireAuth } from './PrivateRoute';
 
 const AppRoutes: React.FC = () => {
@@ -16,7 +16,7 @@ const AppRoutes: React.FC = () => {
           path="/allposthome" 
           element={
             <RequireAuth>
-              <AllPostHome />
+              <AllPostHomePage />
             </RequireAuth>
           } 
         />
@@ -24,7 +24,7 @@ const AppRoutes: React.FC = () => {
           path="/myposts" 
           element={
             <RequireAuth>
-              <AllPostHome />   // Cambia esto al componente correspondiente si "AllPostHome" no es el correcto.
+              <AllPostHomePage />   // Cambia esto al componente correspondiente si "AllPostHomePage" no es el correcto.
             </RequireAuth>
           } 
         />
@@ -32,7 +32,7 @@ const AppRoutes: React.FC = () => {
           path="/createpost" 
           element={
             <RequireAuth>
-              <AllPostHome />   // Cambia esto al componente correspondiente si "AllPostHome" no es el correcto.
+              <AllPostHomePage />   // Cambia esto al componente correspondiente si "AllPostHomePage" no es el correcto.
             </RequireAuth>
           } 
         />

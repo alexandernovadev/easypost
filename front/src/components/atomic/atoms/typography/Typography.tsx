@@ -1,8 +1,8 @@
 import { TypographyStyle } from "./typography.style"
 import { TypographyProps } from "./typography.type"
 
-export const Typography = ({variant, text}: TypographyProps) => {
+export const Typography = ({variant, text,color}: TypographyProps) => {
   return (
-    <TypographyStyle variant={variant}>{text}</TypographyStyle>
+    <TypographyStyle variant={variant} color={color}>{text}</TypographyStyle>
   )
 }
