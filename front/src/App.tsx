@@ -6,6 +6,8 @@ export const StyledApp = styled.div`
   width: 100vw;
   height: 100vh;
   color: ${({ theme }) => theme.colors.white};
+  display: flex;
+  justify-content: center;
 `
 
 function App() {

@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components'
 
 export const NavbarStyle = styled.nav`
   width: 100%;
@@ -7,6 +6,6 @@ export const NavbarStyle = styled.nav`
   background: ${({ theme }) => theme.colors.white};
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 `

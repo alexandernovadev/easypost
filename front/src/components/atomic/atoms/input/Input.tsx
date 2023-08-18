@@ -2,19 +2,30 @@ import { forwardRef, useState } from 'react'
 import { InputStyle } from './input.style'
 import { InputProps } from './input.type'
 import eyeIcon from '../../../../assets/icons/eye.png'
+// import { CloseCircle } from '../../../../assets/Components/CloseCircle'
+// import { ArrowDown } from '../../../../assets/Components/ArrowDown'
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, type, placeholder = 'text', error = '', ...props }, ref) => {
-    const [typeState, setTypeState] = useState('text')
+  (
+    {
+      label,
+      type = 'text',
+      placeholder = 'text',
+      error = '',
+      variant = 'default',
+      ...props
+    },
+    ref
+  ) => {
+    const [typeState, setTypeState] = useState(type)
 
     const handleTypeInput = () => {
       setTypeState((textValueType) =>
         textValueType === 'text' ? 'password' : 'text'
       )
     }
-
     return (
-      <InputStyle type={type} error={error}>
+      <InputStyle type={type} error={error} variant={variant}>
         <label>{label}</label>
         <input
           ref={ref}
@@ -22,6 +33,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           type={typeState}
           placeholder={placeholder}
         />
+
+        {/*
+        <span className='colsesvg'>
+
+        <CloseCircle/>
+        </span>
+        <span className='arrowsbg'>
+
+        <ArrowDown />
+        </span>
+        */}
+
         {type === 'password' && (
           <>
             <img

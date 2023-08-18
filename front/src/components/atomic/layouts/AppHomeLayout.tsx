@@ -1,14 +1,15 @@
-import { Nabvar } from "../molecules/navbar/Nabvar";
+import { Nabvar } from '../molecules/navbar/Nabvar'
+import { AppHomeLayoutStyle } from './AppHomeLayout.style'
 
 interface Props {
-  children: JSX.Element | JSX.Element[]; // Typing children to be a single element or an array of elements
+  children: JSX.Element | JSX.Element[] // Typing children to be a single element or an array of elements
 }
 
-export const AppHomeLayout= ({ children }:Props) => {
+export const AppHomeLayout = ({ children }: Props) => {
   return (
-    <div>
-      <Nabvar/>
-      {children}
-    </div>
-  );
+    <AppHomeLayoutStyle>
+      <Nabvar />
+      <div className="content">{children}</div>
+    </AppHomeLayoutStyle>
+  )
 }
