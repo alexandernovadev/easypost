@@ -9,7 +9,9 @@ export class PostService {
     title?: string
     createAt?: number
     user?: string
-  }): Promise<IPost[]> {
+    limit?: number
+    page?: number
+  }): Promise<{ posts: IPost[]; totalCount: number }> {
     return await this.postRepository.getAll(filters)
   }
 

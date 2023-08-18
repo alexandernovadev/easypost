@@ -22,11 +22,13 @@ export class PostRepository implements IPostRepository {
     title?: string
     createAt?: number
     user?: string
-  }): Promise<IPost[]> {
+    limit?: number
+    offset?: number
+  }): Promise<{ posts: IPost[]; totalCount: number }> {
     const query: any = {}
 
     if (filters?.title) {
-      query.title = new RegExp(filters.title.toLowerCase(), 'i') 
+      query.title = new RegExp(filters.title.toLowerCase(), 'i')
       // i para hacer la búsqueda insensible a mayúsculas y minúsculas
     }
 
@@ -38,7 +40,16 @@ export class PostRepository implements IPostRepository {
       query.user = filters.user
     }
 
-    return await Post.find(query).populate('user')
+    const limit = filters?.limit || 10
+    const offset = filters?.offset ? (filters.offset - 1) * limit : 0
+
+    const posts = await Post.find(query)
+      .skip(offset)
+      .limit(limit)
+      .populate('user')
+    const totalCount = await Post.countDocuments(query)
+
+    return { posts, totalCount }
   }
 
   async get(id: string): Promise<IPost | null> {

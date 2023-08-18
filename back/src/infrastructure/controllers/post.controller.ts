@@ -11,13 +11,29 @@ export const getAllPosts = async (
   next: NextFunction
 ) => {
   try {
+    const limit = Number(req.query.limit) || 10
+    const page = Number(req.query.page) || 1
+    const offset = (page - 1) * limit
+
     const filters = {
       title: req.query.title as string,
       createAt: Number(req.query.createAt),
       user: req.query.user as string,
+      offset: offset,
+      limit: limit,
     }
-    const posts = await postService.getAllPosts(filters)
-    res.status(200).json(posts)
+
+    const { posts, totalCount } = await postService.getAllPosts(filters)
+
+    const totalPages = Math.ceil(totalCount / limit)
+
+    res.status(200).json({
+      currentPage: page,
+      totalPages: totalPages,
+      limit: limit,
+      totalCount: totalCount,
+      data: posts,
+    })
   } catch (error) {
     next(error)
   }
