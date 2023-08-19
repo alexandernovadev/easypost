@@ -1,7 +1,8 @@
-import { IUser } from './../../../../../../back/src/domain/entities/user.entity'
+import { User } from '../../../../interfaces/User'
+
 export interface CardPostProps {
   text?: string
   content?: string
   date?: number | string
-  user?: IUser | null 
+  user?: User | null
 }

@@ -17,9 +17,9 @@ export const login = async (
       return res.status(400).json({ error: 'Email and password are required.' })
     }
 
-    const token = await sessionService.login({ email, password })
+    const data = await sessionService.login({ email, password })
 
-    return res.status(200).json({ token })
+    return res.status(200).json(data)
   } catch (error) {
     if (error instanceof NotFoundError) {
       return res.status(404).json({ error: error.message })
@@ -36,9 +36,9 @@ export const register = async (
 ) => {
   try {
     const userData = req.body
-    const usertoken = await sessionService.register(userData)
+    const data = await sessionService.register(userData)
 
-    return res.status(201).json({ token: usertoken })
+    return res.status(201).json(data)
   } catch (error) {
     // Pasa el error al middleware de errores
     next(error)

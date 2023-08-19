@@ -43,6 +43,7 @@ export const createPost = async (
   res: Response,
   next: NextFunction
 ) => {
+  
   try {
     const post = await postService.createPost(req.body)
     res.status(201).json(post)

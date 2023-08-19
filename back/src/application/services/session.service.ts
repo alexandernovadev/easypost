@@ -22,8 +22,14 @@ export class SessionService {
 
       // Generar y retornar un token JWT usando tu función generateToken
       // @ts-ignore
-      const payload = { userId: user._id, email: user.email }
-      return generateToken(payload)
+      const payload = { userId: user._id, email: user.email, name: user.name }
+      const token = generateToken(payload)
+
+      return {
+        user: payload,
+        token,
+      }
+      
     } catch (error) {
       throw new NotFoundError('Contraseña o Email no validos')
     }
@@ -39,8 +45,13 @@ export class SessionService {
 
       const user = await this.userRepository.create(userData)
       // @ts-ignore
-      const payload = { userId: user._id, email: user.email }
-      return generateToken(payload)
+      const payload = { userId: user._id, email: user.email, name: user.name }
+      const token = generateToken(payload)
+
+      return {
+        user: payload,
+        token,
+      }
 
       // return user;
     } catch (error) {

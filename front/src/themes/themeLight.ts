@@ -4,6 +4,7 @@ export const themeLight = {
     white:'#FFFFFF',
     white200:'#EBEBEB',
     white300:'#EAEAEA',
+    white400:'#D9D9D9',
     primaryColor:'#48E3BE',
     secondaryColor:'#58BBDB',
     tercaryColor:'#C645A9',
@@ -12,7 +13,8 @@ export const themeLight = {
     textGray300:'#474747',
     textGray400:'#666',
     textContrast:'#0E2248',
-    errorColor:'#FE4B4B'
+    // errorColor:'#FE4B4B'
+    errorColor:'#bd3d3d'
   },
   fonts: {
     primary: 'Roboto, sans-serif',

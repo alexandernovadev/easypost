@@ -1,6 +1,7 @@
 export interface ButtonProps {
   text?: string,
-  type?:'submit'
+  type?:'submit',
+  onClick?: ()=>void
 }
 
 

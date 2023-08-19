@@ -5,9 +5,7 @@ import { Button } from '../../atoms/button/Button'
 import { Input } from '../../atoms/input/Input'
 import logo from '../../../../assets/imagelogo.svg'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import Axios from '../../../../api/backOne'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../../../contexts/auth/AuthContext'
 
 type InputsLogin = {
   name: string
@@ -23,39 +21,12 @@ export const FormRegister = () => {
     watch,
     formState: { errors },
   } = useForm<InputsLogin>()
-  // console.log(errors)
 
-  const navigate = useNavigate()
-
-  const [errorForm, setErrorForm] = useState('')
+  const { signin, error: authError } = useAuth()
 
   const onSubmit: SubmitHandler<InputsLogin> = async (data) => {
-    setErrorForm('')
-
-    const { name, email, password } = data
-
-    try {
-      const response = await Axios.post('/auth/register', {
-        name,
-        email,
-        password,
-      })
-      console.log('Response from server:', response.data)
-
-      const { token } = response.data
-      if (token) {
-        localStorage.setItem('token', token)
-      }
-      navigate('/allposthome')
-
-      
-    } catch (error) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      setErrorForm(error.response.data.message || 'Invalid password or email')
-    }
+    signin(data)
   }
-
   // Watchers
   const passwordW = watch('password')
 
@@ -141,11 +112,12 @@ export const FormRegister = () => {
         <section className="buttonpluslin">
           <Button text="SIGN UP" type="submit" />
 
-          {errorForm.length > 0 && (
+          {authError && (
             <div className="errorFormL">
-              <span>Invalid email or password</span>
+              <span>{authError}</span>
             </div>
           )}
+
           <div>
             <Typography variant="capion" text="Already have an account? " />{' '}
             <Anchor

@@ -1,7 +1,7 @@
-import { Typography } from '../atoms/typography/Typography'
-import { Input } from '../atoms/input/Input'
+import { Typography } from '../../atoms/typography/Typography'
+import { Input } from '../../atoms/input/Input'
 import { FiltersCardPostStyle } from './FiltersCardPost.style'
-import CardPostList from '../molecules/cardPostList/CardPostList'
+import CardPostList from '../../molecules/cardPostList/CardPostList'
 
 export const FiltersCardPost = () => {
   return (

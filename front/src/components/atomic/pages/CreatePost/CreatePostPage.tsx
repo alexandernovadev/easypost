@@ -1,8 +1,8 @@
 import { AppHomeLayout } from '../../layouts/AppHomeLayout'
-import { FormCreatePost } from '../../molecules/formcreatepost/FormCreatePost'
+import { CreatePost } from '../../organisms/CreatePost/CreatePost'
 
 export const CreatePostPage = () => (
   <AppHomeLayout>
-    <FormCreatePost />
+    <CreatePost />
   </AppHomeLayout>
 )

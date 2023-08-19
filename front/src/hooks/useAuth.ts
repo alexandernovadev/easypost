@@ -1,3 +1,3 @@
 export const useAuth = () => {
-  return !!localStorage.getItem('token')
+  return !!sessionStorage.getItem('token')
 }
