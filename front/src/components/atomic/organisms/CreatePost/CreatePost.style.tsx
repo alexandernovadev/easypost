@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
 export const CreatePostStyle = styled.div`
-  .titlecard div {
-    padding-top: 20px;
-  }
+
   form {
     padding-top: 20px;
     padding-bottom: 20px;

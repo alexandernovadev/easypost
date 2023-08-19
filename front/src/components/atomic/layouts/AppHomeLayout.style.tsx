@@ -6,10 +6,16 @@ export const AppHomeLayoutStyle = styled.div`
   height: 100vh;
   overflow: auto;
 
+  .titlecard {
+    padding-top: 20px;
 
+    div {
+      padding-top: 10px;
+    }
+  }
 
   .content {
-    padding: 24px;
+    padding: 14px 24px;
   }
   @media (max-width: 1080px) {
     width: 100%;

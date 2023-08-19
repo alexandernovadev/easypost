@@ -4,6 +4,7 @@ export const CardPostStyle = styled.div`
   border: 1px solid #5f5e5e;
   border-radius: 16px;
   min-width: 330px;
+  max-width: 360px;
 
   @media (max-width: 620px) {
     min-width: 100%;

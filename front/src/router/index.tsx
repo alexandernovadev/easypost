@@ -5,6 +5,7 @@ import { AllPostHomePage } from '../components/atomic/pages/AllPostHome/AllPostH
 import { RequireAuth } from './PrivateRoute'
 import { CreatePostPage } from '../components/atomic/pages/CreatePost/CreatePostPage'
 import { NoRequireAuth } from './PublicRoute'
+import { MyPosts } from '../components/atomic/pages/MyPosts/MyPosts'
 
 const AppRoutes: React.FC = () => {
   return (
@@ -47,7 +48,7 @@ const AppRoutes: React.FC = () => {
           path="/myposts"
           element={
             <RequireAuth>
-              <AllPostHomePage />
+              <MyPosts />
             </RequireAuth>
           }
         />

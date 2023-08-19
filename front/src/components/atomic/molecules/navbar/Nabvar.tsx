@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import { NavbarStyle } from './navbar.style'
 import loogMain from '../../../../assets/logoMain.svg'
 import menu from '../../../../assets/menuhamburger.svg'
@@ -6,8 +6,11 @@ import { Typography } from '../../atoms/typography/Typography'
 import { themeLight } from '../../../../themes/themeLight'
 import { Link, useNavigate } from 'react-router-dom'
 import { CreateIcon } from '../../../../assets/Components/CreateIcon'
+import { AuthContext } from '../../../../contexts/auth/AuthContext'
 
 export const Nabvar = () => {
+  const { signout } = useContext(AuthContext)
+
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
   const menuRef = useRef<HTMLDivElement | null>(null)
 
@@ -30,7 +33,7 @@ export const Nabvar = () => {
   }, [])
 
   const goToHome = () => navigate('/allposthome')
-  
+
   return (
     <NavbarStyle>
       <div className="menuLogo" onClick={goToHome}>
@@ -52,7 +55,7 @@ export const Nabvar = () => {
               Create Publication
             </Link>
 
-            <Link to="/post" className="optionMenu">
+            <Link to="/myposts" className="optionMenu">
               <CreateIcon />
               My Publications
             </Link>
@@ -62,7 +65,7 @@ export const Nabvar = () => {
               See All Publications
             </Link>
 
-            <Link to="/post" className="optionMenu">
+            <Link to="/" className="optionMenu" onClick={signout}>
               <CreateIcon />
               Logout
             </Link>

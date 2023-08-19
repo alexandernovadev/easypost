@@ -4,5 +4,5 @@ export interface CardPostProps {
   text?: string
   content?: string
   date?: number | string
-  user?: User | null
+  user?: User | null | undefined
 }

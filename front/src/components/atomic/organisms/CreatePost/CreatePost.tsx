@@ -1,7 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { CreatePostStyle } from './CreatePost.style'
 import { Input } from '../../atoms/input/Input'
-import { Typography } from '../../atoms/typography/Typography'
 import { TextArea } from '../../atoms/textarea/TextArea'
 import { Button } from '../../atoms/button/Button'
 import { CardPost } from '../../molecules/cardPost/CardPost'
@@ -70,10 +69,7 @@ export const CreatePost = () => {
       />
 
       <CreatePostStyle>
-        <span className="titlecard">
-          <Typography variant="title" text="Create message" />
-        </span>
-
+     
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <Input
             label="Title messages"

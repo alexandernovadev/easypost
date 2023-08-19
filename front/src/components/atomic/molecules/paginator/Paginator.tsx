@@ -1,4 +1,8 @@
-import React from 'react'
+import { LeftDoubleArrow } from '../../../../assets/Components/LeftDoubleArrow'
+import { LeftSingleArrow } from '../../../../assets/Components/LeftSingleArrow'
+import { RightDoubleArrow } from '../../../../assets/Components/RightDoubleArrow'
+import { RightSingleArrow } from '../../../../assets/Components/RightSingleArrow'
+import { PaginatorStyle } from './Paginator.style'
 
 interface PaginatorProps {
   currentPage: number
@@ -6,11 +10,11 @@ interface PaginatorProps {
   onPageChange: (page: number) => void
 }
 
-const Paginator: React.FC<PaginatorProps> = ({
+const Paginator = ({
   currentPage,
   totalPages,
   onPageChange,
-}) => {
+}: PaginatorProps) => {
   const changePage = (page: number) => {
     if (page > 0 && page <= totalPages) {
       onPageChange(page)
@@ -18,22 +22,29 @@ const Paginator: React.FC<PaginatorProps> = ({
   }
 
   return (
-    <div
-      style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}
-    >
+    <PaginatorStyle>
+      <button
+        onClick={() => changePage(1)}
+        disabled={currentPage === 1}
+        style={{ position: 'relative', right: 7 }}
+      >
+        <LeftDoubleArrow />
+      </button>
+
       <button
         onClick={() => changePage(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        Anterior
+        <LeftSingleArrow />
       </button>
 
       {[...Array(totalPages).keys()].map((i) => (
         <button
+          className="btnNumber"
           key={i}
           style={{
             margin: '0 5px',
-            background: currentPage === i + 1 ? 'grey' : 'white',
+            fontWeight: currentPage === i + 1 ? '700' : '300',
           }}
           onClick={() => changePage(i + 1)}
         >
@@ -45,9 +56,17 @@ const Paginator: React.FC<PaginatorProps> = ({
         onClick={() => changePage(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        Siguiente
+        <RightSingleArrow />
       </button>
-    </div>
+
+      <button
+        onClick={() => changePage(totalPages)}
+        disabled={currentPage === 1}
+        style={{ position: 'relative', left: 7 }}
+      >
+        <RightDoubleArrow />
+      </button>
+    </PaginatorStyle>
   )
 }
 

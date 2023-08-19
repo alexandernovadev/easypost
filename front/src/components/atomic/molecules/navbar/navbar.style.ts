@@ -18,22 +18,22 @@ export const NavbarStyle = styled.nav`
   }
 
   .menuH {
-    position: relative; // Make it relative so the dropdown is positioned based on this
+    position: relative; 
 
     img {
-      cursor: pointer; // Show that the image is clickable
+      cursor: pointer; 
     }
 
     .menuOptions {
       display: none; // Initially hide the menu
       position: absolute; // Absolute position to show it just below the hamburger icon
       top: 100%; // Position it just below the parent div
-      right: 0; // Align it to the right
+      right: -6px; // Align it to the right
       background-color: ${({ theme }) => theme.colors.white};
       border: 1px solid #ccc;
       border-radius: 12px;
       z-index: 1; // To show it above other elements
-      min-width: 145px;
+      min-width: 180px;
       display: flex;
       flex-direction: column;
       overflow: auto;

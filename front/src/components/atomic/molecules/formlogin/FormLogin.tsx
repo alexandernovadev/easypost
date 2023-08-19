@@ -85,13 +85,6 @@ export const FormLogin = () => {
               type="BLANCK"
               variant="default"
             />
-            <br />
-            <Anchor
-              text="Sisadasdasdasd"
-              href="/allposthome"
-              type="BLANCK"
-              variant="default"
-            />
           </div>
         </section>
       </form>
