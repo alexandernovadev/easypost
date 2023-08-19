@@ -1,3 +1,4 @@
+import { testPoint } from './infrastructure/controllers/test.controller';
 import express from "express"
 import cors from "cors"
 import bodyParser from "body-parser"
@@ -6,6 +7,7 @@ import mongoose from "mongoose"
 import userRoutes from "./infrastructure/routes/user.route"
 import authRoutes from "./infrastructure/routes/auth.route"
 import postRoutes from "./infrastructure/routes/post.route"
+import testRoutes from "./infrastructure/routes/test.route"
 
 import { errorHandler } from "./infrastructure/middlewares/errorHandler"
 
@@ -26,6 +28,7 @@ app.use(bodyParser.json())
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 app.use("/api/posts", postRoutes)
+app.use("/api/test", testRoutes)
 
 // Errors Midleware
 app.use(errorHandler)

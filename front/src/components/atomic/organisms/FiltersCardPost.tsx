@@ -1,15 +1,16 @@
-import React from 'react'
 import { Typography } from '../atoms/typography/Typography'
 import { Input } from '../atoms/input/Input'
-import { CardPost } from '../molecules/cardPost/CardPost'
 import { FiltersCardPostStyle } from './FiltersCardPost.style'
+import CardPostList from '../molecules/cardPostList/CardPostList'
 
 export const FiltersCardPost = () => {
   return (
     <FiltersCardPostStyle>
-      <span className='titlecard'>
+      <span className="titlecard">
         <Typography variant="title" text="All Publications" />
       </span>
+
+      {/* Mover esto a molecules*/}
       <form action="" noValidate>
         <Input label="Words to Search?" placeholder="post" variant="fill" />
         <Input
@@ -20,8 +21,9 @@ export const FiltersCardPost = () => {
         />
       </form>
 
-
-      <CardPost text="Mi texto " />
+      <div>
+        <CardPostList />
+      </div>
     </FiltersCardPostStyle>
   )
 }

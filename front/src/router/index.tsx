@@ -1,8 +1,9 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { RegisterPage } from '../components/atomic/pages/RegisterPage/RegisterPage';
-import { LoginPage } from '../components/atomic/pages/LoginPage/LoginPage';
-import { AllPostHomePage } from '../components/atomic/pages/AllPostHome/AllPostHomePage';  // Asegúrate de importar estos componentes.
-import { RequireAuth } from './PrivateRoute';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { RegisterPage } from '../components/atomic/pages/RegisterPage/RegisterPage'
+import { LoginPage } from '../components/atomic/pages/LoginPage/LoginPage'
+import { AllPostHomePage } from '../components/atomic/pages/AllPostHome/AllPostHomePage' // Asegúrate de importar estos componentes.
+import { RequireAuth } from './PrivateRoute'
+import { CreatePostPage } from '../components/atomic/pages/CreatePost/CreatePostPage'
 
 const AppRoutes: React.FC = () => {
   return (
@@ -11,34 +12,34 @@ const AppRoutes: React.FC = () => {
         <Route path="/" element={<LoginPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        
-        <Route 
-          path="/allposthome" 
+
+        <Route
+          path="/allposthome"
           element={
             <RequireAuth>
               <AllPostHomePage />
             </RequireAuth>
-          } 
+          }
         />
-        <Route 
-          path="/myposts" 
+        <Route
+          path="/myposts"
           element={
             <RequireAuth>
-              <AllPostHomePage />   // Cambia esto al componente correspondiente si "AllPostHomePage" no es el correcto.
+              <AllPostHomePage />
             </RequireAuth>
-          } 
+          }
         />
-        <Route 
-          path="/createpost" 
+        <Route
+          path="/createpost"
           element={
             <RequireAuth>
-              <AllPostHomePage />   // Cambia esto al componente correspondiente si "AllPostHomePage" no es el correcto.
+              <CreatePostPage />
             </RequireAuth>
-          } 
+          }
         />
       </Routes>
     </BrowserRouter>
   )
 }
 
-export default AppRoutes;
+export default AppRoutes
