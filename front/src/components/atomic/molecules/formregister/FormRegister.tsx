@@ -11,7 +11,7 @@ type InputsLogin = {
   name: string
   email: string
   password: string
-  confirmPassword: string
+  confirmPassword?: string
 }
 
 export const FormRegister = () => {
@@ -22,11 +22,13 @@ export const FormRegister = () => {
     formState: { errors },
   } = useForm<InputsLogin>()
 
-  const { signin, error: authError } = useAuth()
+  const { register:registerPost, error: authError } = useAuth()
 
   const onSubmit: SubmitHandler<InputsLogin> = async (data) => {
-    signin(data)
+    delete data.confirmPassword
+    registerPost(data)
   }
+
   // Watchers
   const passwordW = watch('password')
 

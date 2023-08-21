@@ -14,9 +14,9 @@ const postSchema = Joi.object({
     'string.max': 'El contenido no debe superar los 200 caracteres',
     'any.required': 'Contenido es requerido',
   }),
-  createAt: Joi.number().integer().required().messages({
-    'number.base': '"createAt" should be a type of number',
-    'number.integer': '"createAt" should be an integer (unix timestamp)',
+  createAt: Joi.date().iso().required().messages({
+    'date.base': '"createAt" should be a valid date',
+    'date.isoDate': '"createAt" should be a valid ISO date format',
     'any.required': 'createAt es requerido',
   }),
   user: Joi.string()

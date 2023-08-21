@@ -1,4 +1,4 @@
 export default {
   secret: process.env.JWTSECRET || 'miscri334t3%&$#',
-  expiresIn: '10h',
+  expiresIn: '30d',
 }

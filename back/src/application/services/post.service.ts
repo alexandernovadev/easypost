@@ -7,7 +7,7 @@ export class PostService {
 
   async getAllPosts(filters?: {
     title?: string
-    createAt?: number
+    createAt?: string
     user?: string
     limit?: number
     page?: number

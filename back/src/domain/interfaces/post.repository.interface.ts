@@ -3,7 +3,7 @@ import { IPost } from '../../domain/entities/post.entity'
 export interface IPostRepository {
   getAll(filters?: {
     title?: string;
-    createAt?: number;
+    createAt?: string;
     user?: string;
     limit?: number;  
     page?: number; 

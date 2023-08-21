@@ -25,6 +25,7 @@ export const FormLoginStyle = styled.div`
 
     div {
       text-align: right;
+      padding-top: 32px;
     }
   }
 

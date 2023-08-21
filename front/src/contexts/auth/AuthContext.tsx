@@ -74,6 +74,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setLogin(true)
       sessionStorage.setItem('token', authData.token)
       sessionStorage.setItem('user', JSON.stringify(authData.user))
+      window.location.href = '/'
     } catch (error) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -94,9 +95,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         user: response.data.user,
       }
 
+  
       setAuthState(authData)
       setLogin(true)
       sessionStorage.setItem('token', authData.token)
+      sessionStorage.setItem('user', JSON.stringify(authData.user))
+      window.location.href = '/'
     } catch (error) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore

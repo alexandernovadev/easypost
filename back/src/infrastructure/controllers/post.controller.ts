@@ -16,7 +16,7 @@ export const getAllPosts = async (
 
     const filters = {
       title: req.query.title as string,
-      createAt: Number(req.query.createAt),
+      createAt: String(req.query.createAt),
       user: req.query.user as string,
       limit: limit,
       page: page, // Aquí simplemente pasas la página, no el offset
