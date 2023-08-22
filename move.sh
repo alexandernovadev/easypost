@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# Entrar a la carpeta 'front'
-cd front
+# Crear un directorio temporal
+tmpdir=$(mktemp -d)
+
+# Copiar todo desde 'front' al directorio temporal
+cp -r front/* "$tmpdir"
 
 # Cambiar a la rama 'front'
 if git checkout front; then
-    # Copiar todo desde 'front' a la raíz
-    cp -r * 
-
-    # Volver a la carpeta raíz
-    cd ..
+    # Copiar los archivos desde el directorio temporal a la raíz
+    cp -r "$tmpdir"/* .
 
     # Borrar las carpetas 'back', 'front' y 'node_modules'
     rm -rf back front node_modules
@@ -25,3 +25,6 @@ if git checkout front; then
 else
     echo "No se pudo cambiar a la rama 'front'. Operación abortada."
 fi
+
+# Eliminar el directorio temporal
+rm -rf "$tmpdir"
