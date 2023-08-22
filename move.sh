@@ -12,6 +12,8 @@ rm -rf back front node_modules
 
 git checkout front
 
-git add . && git commit -m "new version front"
+git add .
 
-git push
+git commit -m "new version front"
+
+git push origin front
