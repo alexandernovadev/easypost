@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../../../contexts/auth/AuthContext'
 import { useForm } from 'react-hook-form'
 import { AppHomeLayout } from '../../layouts/AppHomeLayout'
@@ -8,11 +8,15 @@ import { MyPostStyle } from './MyPost.style'
 import { DATEDEFAULT } from '../../../../utils/dateDefault'
 
 interface FormData {
-  selectedDate: Date   
+  selectedDate: Date
 }
 
 export const MyPosts: React.FC = () => {
   const { authState } = useContext(AuthContext)
+  const [pagintatorInfo, setPagintatorInfo] = useState({
+    total: 0,
+    show: 0,
+  })
   const { register, watch, reset } = useForm<FormData>()
 
   const selectedDate = watch('selectedDate')
@@ -23,11 +27,19 @@ export const MyPosts: React.FC = () => {
     })
   }
 
+  const setTotalAndPost = (total: number, show: number) => {
+    setPagintatorInfo({
+      show,
+      total,
+    })
+  }
   return (
     <AppHomeLayout title="My Publications">
       <MyPostStyle>
         <div className="infopagination">
-          <span>Showing 2/15 Post</span>
+          <span>
+            Showing {pagintatorInfo.show}/{pagintatorInfo.total} Post
+          </span>
         </div>
         <form>
           <Input
@@ -36,12 +48,12 @@ export const MyPosts: React.FC = () => {
             type="date"
             actualValue={selectedDate}
             resetDateValue={resetDateValue}
-            {...register('selectedDate', {
-            })}
+            {...register('selectedDate', {})}
           />
         </form>
         {authState?.user.userId && (
           <CardPostList
+            setTotalAndPost={setTotalAndPost}
             user={String(authState?.user.userId)}
             createAt={selectedDate}
           />

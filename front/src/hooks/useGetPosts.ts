@@ -68,6 +68,7 @@ export const useGetPosts = (initialFilters: Filters = {}) => {
     posts: data?.data,
     currentPage: data?.currentPage,
     totalPages: data?.totalPages,
+    totalCount: data?.totalCount,
     loading,
     error,
     setFilters,

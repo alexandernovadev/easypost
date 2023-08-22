@@ -3,13 +3,36 @@ import { Filters, useGetPosts } from '../../../../hooks/useGetPosts'
 import { CardPost } from '../cardPost/CardPost'
 import Paginator from '../paginator/Paginator'
 
-const CardPostList = ({ page = 1, limit = 3, user, createAt }: Filters) => {
-  const { posts, currentPage, totalPages, setFilters, loading, error } =
-    useGetPosts({ page, limit, user, createAt })
+interface setDataPagination {
+  setTotalAndPost?: (total: number, postActual: number) => void
+}
+
+const CardPostList = ({
+  page = 1,
+  limit = 3,
+  user,
+  createAt,
+  setTotalAndPost,
+}: Filters & setDataPagination) => {
+  const {
+    posts,
+    currentPage,
+    totalPages,
+    setFilters,
+    totalCount,
+    loading,
+    error,
+  } = useGetPosts({ page, limit, user, createAt })
 
   useEffect(() => {
     setFilters({ page, limit, user, createAt })
-  }, [page, limit, user, createAt])
+  }, [page, limit, user, createAt, setFilters])
+
+  useEffect(() => {
+    if (setTotalAndPost) {
+      setTotalAndPost(totalCount || 0, posts?.length || 0)
+    }
+  }, [posts, setTotalAndPost, totalCount])
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error}</p>
