@@ -8,10 +8,10 @@ const postSchema = Joi.object({
     'string.max': 'El título no debe superar los 50 caracteres',
     'any.required': 'Título es requerido',
   }),
-  content: Joi.string().min(10).max(200).required().messages({
+  content: Joi.string().min(100).max(300).required().messages({
     'string.base': '"content" should be a type of string',
-    'string.min': 'El contenido debe tener al menos 10 caracteres',
-    'string.max': 'El contenido no debe superar los 200 caracteres',
+    'string.min': 'El contenido debe tener al menos 100 caracteres',
+    'string.max': 'El contenido no debe superar los 300 caracteres',
     'any.required': 'Contenido es requerido',
   }),
   createAt: Joi.date().iso().required().messages({
