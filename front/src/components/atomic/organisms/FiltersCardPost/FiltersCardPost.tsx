@@ -16,6 +16,7 @@ export const FiltersCardPost = () => {
   const [show, setShow] = useState(0)
   const [total, setTotal] = useState(0)
   const selectedDate = watch('selectedDate')
+  const title = watch('title')
 
   const resetDateValue = () => {
     reset({
@@ -36,7 +37,12 @@ export const FiltersCardPost = () => {
         </span>
       </div>
       <form action="" noValidate>
-        <Input label="Words to Search?" placeholder="post" variant="fill" />
+        <Input
+          label="Words to Search?"
+          placeholder="post"
+          variant="fill"
+          {...register('title')}
+        />
         <Input
           label="Date Select"
           placeholder="Select a date"
@@ -50,6 +56,7 @@ export const FiltersCardPost = () => {
 
       <div>
         <CardPostList
+          title={title}
           setTotalAndPost={setTotalAndPost}
           createAt={selectedDate}
         />

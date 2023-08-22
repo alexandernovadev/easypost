@@ -6,6 +6,7 @@ export interface Filters {
   limit?: number
   user?: string
   createAt?: Date
+  title?: string
 }
 
 interface User {
@@ -48,7 +49,8 @@ export const useGetPosts = (initialFilters: Filters = {}) => {
             page: filters.page || 1,
             limit: filters.limit || 3,
             user:   filters.user,
-            createAt: filters.createAt || '1990-01-01T00:00:00Z'
+            createAt: filters.createAt || '1990-01-01T00:00:00Z',
+            title: filters.title
           },
         })
 

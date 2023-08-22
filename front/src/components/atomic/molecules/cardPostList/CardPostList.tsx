@@ -12,6 +12,7 @@ const CardPostList = ({
   limit = 3,
   user,
   createAt,
+  title,
   setTotalAndPost,
 }: Filters & setDataPagination) => {
   const {
@@ -25,8 +26,8 @@ const CardPostList = ({
   } = useGetPosts({ page, limit, user, createAt })
 
   useEffect(() => {
-    setFilters({ page, limit, user, createAt })
-  }, [page, limit, user, createAt, setFilters])
+    setFilters({ page, limit, user, createAt, title })
+  }, [page, limit, user, createAt, setFilters, title])
 
   useEffect(() => {
     if (setTotalAndPost) {
