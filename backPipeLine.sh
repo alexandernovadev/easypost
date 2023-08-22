@@ -7,7 +7,7 @@ tmpdir=$(mktemp -d)
 cp -r back/* "$tmpdir"
 
 # Cambiar a la rama 'front'
-if git checkout back; then
+if git checkout backend; then
     # Copiar los archivos desde el directorio temporal a la raíz
     cp -r "$tmpdir"/* .
 
@@ -18,10 +18,10 @@ if git checkout back; then
     git add .
 
     # Hacer una confirmación con un mensaje
-    git commit -m "Actualización de la versión de 'Back 1.2.0'"
+    git commit -m "Actualización de la versión de 'Back 1.3.0'"
 
     # Empujar los cambios a la rama 'front' en el repositorio remoto
-    git push origin back
+    git push origin backend
 else
     echo "No se pudo cambiar a la rama 'back'. Operación abortada."
 fi
