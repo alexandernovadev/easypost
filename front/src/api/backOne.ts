@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const Axios = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL:  import.meta.env.VITE_BACK_URL || 'http://localhost:3000/api',
   headers: {
     authorization: sessionStorage.getItem('token') || '',
   },
