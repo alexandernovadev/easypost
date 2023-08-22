@@ -36,6 +36,9 @@ app.use('/api/auth', authRoutes)
 app.use('/api/posts', postRoutes)
 app.use('/api/test', testRoutes)
 
+app.get('/', (req, res) => {
+  res.send('<h1>health success</h1>');
+});
 // Errors Midleware
 app.use(errorHandler)
 
