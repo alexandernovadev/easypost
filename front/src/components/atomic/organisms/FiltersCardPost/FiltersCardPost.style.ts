@@ -9,4 +9,17 @@ export const FiltersCardPostStyle = styled.div`
     flex-direction: column;
     gap: 24px;
   }
+
+  .infopagination {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: 32px;
+    color: white;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+
 `
