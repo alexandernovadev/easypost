@@ -18,7 +18,7 @@ if git checkout backend; then
     git add .
 
     # Hacer una confirmación con un mensaje
-    git commit -m "Actualización de la versión de 'Back 1.3.0'"
+    git commit -m "Actualización de la versión de 'Back 1.3.2'"
 
     # Empujar los cambios a la rama 'front' en el repositorio remoto
     git push origin backend
