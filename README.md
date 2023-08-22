@@ -1,39 +1,68 @@
 # EasyPost App
 
-A modern web application for blogging, utilizing a hexagonal architecture in the backend, JWT session management, and an interactive frontend. Dive in to learn more about the tech stack and functionalities.
+A modern web application for blogging that employs a hexagonal architecture in the backend, JWT session management, and an interactive frontend. Keep reading to discover more about the technology stack and functionalities.
+
+
+## Website: [https://www.easypostapp.com](https://www.easypostapp.com)
+## Production Deployment
+
+### Backend (Heroku)
+1. Connect your Heroku account and create a new app.
+2. Deploy your backend to Heroku using Git.
+
+### Frontend (Netlify)
+1. Connect your Netlify account and create a new site.
+2. Deploy your frontend by linking your GitHub repository.
+
+
+---
 
 ## Backend
 
 ### Stack & Libraries
 - **Main Framework**: [Node.js](https://nodejs.org/)
 - **Architecture**: Hexagonal Architecture (Ports and Adapters)
-- **Database**: [MongoDB](https://www.mongodb.com/) via [Mongoose](https://mongoosejs.com/)
+- **Database**: [MongoDB](https://www.mongodb.com/) accessed via [Mongoose](https://mongoosejs.com/)
 - **Session Management**: JWT
 - **Validation**: [Joi](https://joi.dev/)
 - **Server**: [Express](https://expressjs.com/)
   
 ### Features
-- **JWT Session**: Authenticate and manage user sessions securely with JSON web tokens.
+- **JWT Session**: Securely authenticate and manage user sessions using JSON web tokens.
 - **Entities**: 
   - **Post**: Create, fetch, and manage blog posts.
 
-### Local Development
+### Local Development with Docker
 1. Install the necessary packages:
 ```bash
 npm install
 ```
-2. To run the server in development mode:
+2. Use Docker to set up the MongoDB instance:
+```bash
+docker run --name easypost-mongodb -p 27017:27017 -d mongo
+```
+3. Seed the database with mock data by accessing:
+```http
+GET http://localhost:YOUR_PORT/api/seed
+```
+Replace `YOUR_PORT` with the port on which your backend server is running.
+
+4. To run the server in development mode:
 ```bash
 npm run dev
 ```
-3. Build the server for production:
+5. Build the server for production:
 ```bash
 npm run build
 ```
-4. Start the production server:
+6. Start the production server:
 ```bash
 npm start
 ```
+
+---
+
+Please replace `YOUR_PORT` with the actual port on which your backend server is configured to run. This updated README provides instructions for using Docker to set up the MongoDB instance and seeding the database with mock data using the `/api/seed` endpoint.
 
 ---
 

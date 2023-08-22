@@ -60,6 +60,7 @@ const CardPostList = ({
                 content={post.content}
                 date={new Date(post.createAt)}
                 user={post.user}
+                highlightTitle={title}
               />
             ))}
           </section>
