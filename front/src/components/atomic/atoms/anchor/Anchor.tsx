@@ -1,4 +1,3 @@
-import React from 'react'
 import { AnchorProps } from './anchor.type'
 import { AnchorStyle } from './anchor.style'
 import { Link } from 'react-router-dom'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { FormLogin } from '../../molecules/formlogin/FormLogin'
 import { PageLoginStyle } from './loginPage.style'
 
