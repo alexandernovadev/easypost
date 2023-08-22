@@ -4,6 +4,6 @@ export interface Post {
   id_?: number | string
   title?: string
   content?: string
-  createAt?: number
+  createAt?: Date
   user?: string | User 
 }

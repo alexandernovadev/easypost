@@ -27,7 +27,7 @@ export const CreatePost = () => {
     defaultValues: {
       title: '',
       content: '',
-      createAt: Math.floor(Date.now() / 1000),
+      createAt: new Date(),
       user: '',
     },
   })
@@ -44,15 +44,22 @@ export const CreatePost = () => {
   }, [error])
 
   const onSubmit: SubmitHandler<Post> = async (data) => {
+    setModalSucces(false)
+    setModalError(false)
+
     const form = {
       ...data,
       user: userSession.userId,
     } as Post
 
     console.log(form)
+    
 
     savePost(form)
-    setModalSucces(true)
+
+    if (!error) {
+      setModalSucces(true)
+    }
   }
 
   return (
@@ -69,7 +76,6 @@ export const CreatePost = () => {
       />
 
       <CreatePostStyle>
-     
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <Input
             label="Title messages"
