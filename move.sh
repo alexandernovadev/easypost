@@ -1,19 +1,27 @@
+#!/bin/bash
+
 # Entrar a la carpeta 'front'
 cd front
 
-# Copiar todo desde 'front' a la raíz
-cp -r * ..
+# Cambiar a la rama 'front'
+if git checkout front; then
+    # Copiar todo desde 'front' a la raíz
+    cp -r * ..
 
-# Volver a la carpeta raíz
-cd ..
+    # Volver a la carpeta raíz
+    cd ..
 
-# delete
-rm -rf back front node_modules
+    # Borrar las carpetas 'back', 'front' y 'node_modules'
+    rm -rf back front node_modules
 
-git checkout front
+    # Agregar los cambios a Git
+    git add .
 
-git add .
+    # Hacer una confirmación con un mensaje
+    git commit -m "Actualización de la versión de 'front'"
 
-git commit -m "new version front"
-
-git push origin front
+    # Empujar los cambios a la rama 'front' en el repositorio remoto
+    git push origin front
+else
+    echo "No se pudo cambiar a la rama 'front'. Operación abortada."
+fi
