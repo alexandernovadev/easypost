@@ -63,7 +63,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setError(null)
     try {
       const response = await Axios.post('/auth/login', data)
-      console.log('data response', response)
 
       const authData = {
         token: response.data.token,

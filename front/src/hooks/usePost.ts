@@ -11,8 +11,7 @@ export const usePost = () => {
     setLoading(true)
     setError(null)
     try {
-      const response = await Axios.post('/posts', data)
-      console.log('data response ', response)
+     await Axios.post('/posts', data)
       setPostSaved(true)
     } catch (error) {
       console.log('err', error)

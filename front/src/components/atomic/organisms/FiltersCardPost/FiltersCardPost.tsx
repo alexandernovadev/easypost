@@ -11,12 +11,10 @@ interface FormData {
 }
 
 export const FiltersCardPost = () => {
-  const [pagintatorInfo, setPagintatorInfo] = useState({
-    total: 0,
-    show: 0,
-  })
   const { register, watch, reset } = useForm<FormData>()
 
+  const [show, setShow] = useState(0)
+  const [total, setTotal] = useState(0)
   const selectedDate = watch('selectedDate')
 
   const resetDateValue = () => {
@@ -26,21 +24,15 @@ export const FiltersCardPost = () => {
   }
 
   const setTotalAndPost = (total: number, show: number) => {
-    console.log({total,show});
-    // setPagintatorInfo({
-    //   show:12,
-    //   total
-    // })
-    // setPagintatorInfo Si colocolo esto aqui me vota un error deepMaximun
-    
+    setTotal(total)
+    setShow(show)
   }
 
   return (
     <FiltersCardPostStyle>
-      {/* Mover esto a molecules*/}
       <div className="infopagination">
         <span>
-          Showing {pagintatorInfo.show}/{pagintatorInfo.total} Post
+          Showing {show}/{total} Post
         </span>
       </div>
       <form action="" noValidate>
@@ -57,12 +49,10 @@ export const FiltersCardPost = () => {
       </form>
 
       <div>
-
         <CardPostList
-        setTotalAndPost={setTotalAndPost}
-        createAt={selectedDate}
+          setTotalAndPost={setTotalAndPost}
+          createAt={selectedDate}
         />
-
       </div>
     </FiltersCardPostStyle>
   )

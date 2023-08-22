@@ -20,7 +20,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    console.log('actualValue', actualValue && String(actualValue))
 
     const [typeState, setTypeState] = useState(type)
 
