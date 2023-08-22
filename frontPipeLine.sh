@@ -1,5 +1,11 @@
 #!/bin/bash
 
+cd front
+
+rm -rf node_modules
+
+cd ..
+
 # Crear un directorio temporal
 tmpdir=$(mktemp -d)
 
