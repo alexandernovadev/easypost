@@ -1,33 +1,48 @@
-PRUEBA TÉCNICA BACKEND
+## Backend
 
-Easy Media por el lado del backend deberá disponer lo necesario para suplir todas las funcionalidades del front end, y otras propias de la API para su correcto funcionamiento:
+### Stack & Libraries
+- **Main Framework**: [Node.js](https://nodejs.org/)
+- **Architecture**: Hexagonal Architecture (Ports and Adapters)
+- **Database**: [MongoDB](https://www.mongodb.com/) accessed via [Mongoose](https://mongoosejs.com/)
+- **Session Management**: JWT
+- **Validation**: [Joi](https://joi.dev/)
+- **Server**: [Express](https://expressjs.com/)
+  
+### Features
+- **JWT Session**: Securely authenticate and manage user sessions using JSON web tokens.
+- **Entities**: 
+  - **Post**: Create, fetch, and manage blog posts.
 
-Registro de usuarios con: Nombre, email, contraseña
-Inicio de sesión de usuarios.
-Creación de mensajes/post únicamente para usuarios registrados y con sesión activa.
-Filtrado de mensajes, por usuario logueado, por usuarios registrados,  por fecha y por palabras incluidas en el título.
-Cerrar sesión.
+### Local Development with Docker
+1. Install the necessary packages:
+```bash
+npm install
+```
+2. Use Docker to set up the MongoDB instance:
+```bash
+docker run --name easypost-mongodb -p 27017:27017 -d mongo
+```
+3. Seed the database with mock data by accessing:
+```http
+GET http://localhost:YOUR_PORT/api/seed
+```
+Replace `YOUR_PORT` with the port on which your backend server is running.
 
-La cantidad de endpoints, el uso de status HTTP, manejo de errores, middlewares, JWT, arquitectura, routers, patrones, tablas/colecciones, motor de bd, manejo de estandares, performance, variables de entorno (dev, stage, prod), entre otras, estarán bajo su criterio. El único requerimiento es que se trabaje con NodeJs. Todo esto entrará a formar parte de la evaluación final de su solución.
+4. To run the server in development mode:
+```bash
+npm run dev
+```
+5. Build the server for production:
+```bash
+npm run build
+```
+6. Start the production server:
+```bash
+npm start
+```
 
-Consideraciones
-Recordar que se debe construir un API Rest, la cual será consumida por el cliente (Angular). En el backend no se debe configurar ningún template, a menos que implemente una solución basada en SSR desde el frontend. Importante implementar swagger o en su defecto compartir un archivo o proyecto en postman con todas las API Rest.
+---
 
-Gestión de la base de datos
-La base de datos es suficiente que se maneje de forma local, en caso de realizar un despliegue a algún host de db (por ejemplo mongo Atlas para Mongo DB), esto le dará puntos extras. Sin embargo, el proyecto debe funcionar localmente, por lo que es recomendable (mas no obligatorio), el uso de Docker para este apartado.
+Please replace `YOUR_PORT` with the actual port on which your backend server is configured to run. This updated README provides instructions for using Docker to set up the MongoDB instance and seeding the database with mock data using the `/api/seed` endpoint.
 
-Criterios de evaluación
-Manejo de Git
-Manejo de swagger o en su defecto postman
-Conocimiento de NodeJs
-Conocimiento de Bases de datos (CRUD, querys ( simples, avanzados), etc…)
-Estándares de programación (Código limpio, estructurado, comentarios, JSDoc, declaración semántica, entre otros).
-Cumplimiento de los requerimientos (Se evaluará el alcance).
-Manejo de autenticación en el backend.
-Manejo de excepciones
-Estructuras de datos
-Validaciones
-Estándares web (Verbos HTTP, status, etc…)
-Optimización de código.
-
-
+---
