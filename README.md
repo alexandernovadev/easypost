@@ -3,7 +3,18 @@
 A modern web application for blogging that employs a hexagonal architecture in the backend, JWT session management, and an interactive frontend. Keep reading to discover more about the technology stack and functionalities.
 
 
-## Website: [https://www.easypostapp.com](https://www.easypostapp.com)
+## Website: [VER DEMO](https://easypost-alexsk88.netlify.app/allposthome)
+
+
+## User Demo
+```
+{
+    "email":"alex@example.com",
+    "password":"password1234"
+}
+```
+
+
 ## Production Deployment
 
 ### Backend (Heroku)
