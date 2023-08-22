@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const CardPostStyle = styled.div`
   border: 1px solid #5f5e5e;
+  background: ${({ theme }) => theme.colors.textGray400};
   border-radius: 16px;
   min-width: 330px;
   max-width: 360px;
@@ -31,7 +32,6 @@ export const CardPostStyle = styled.div`
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-    min-height: 34px;
 
     section {
       width: 100%;

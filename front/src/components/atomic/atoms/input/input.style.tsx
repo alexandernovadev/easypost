@@ -64,7 +64,8 @@ export const InputStyle = styled.div<InputPropStyle>`
       }
       .colsesvg svg {
         left: 10px;
-        top: 24px;
+        top: 30px;
+        cursor: pointer;
       }
       .arrowsbg svg {
         top: 28px;

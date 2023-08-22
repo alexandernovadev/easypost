@@ -5,20 +5,23 @@ import { AppHomeLayout } from '../../layouts/AppHomeLayout'
 import CardPostList from '../../molecules/cardPostList/CardPostList'
 import { Input } from '../../atoms/input/Input'
 import { MyPostStyle } from './MyPost.style'
+import { DATEDEFAULT } from '../../../../utils/dateDefault'
 
 interface FormData {
-  selectedDate: string
+  selectedDate: Date   
 }
 
 export const MyPosts: React.FC = () => {
   const { authState } = useContext(AuthContext)
-  const { register, watch } = useForm<FormData>()
+  const { register, watch, reset } = useForm<FormData>()
 
-  const convertToUnix = (date: string): number => {
-    return Math.floor(new Date(date).getTime() / 1000)
+  const selectedDate = watch('selectedDate')
+
+  const resetDateValue = () => {
+    reset({
+      selectedDate: DATEDEFAULT.date,
+    })
   }
-
-  const selectedDate = watch('selectedDate') 
 
   return (
     <AppHomeLayout title="My Publications">
@@ -31,13 +34,16 @@ export const MyPosts: React.FC = () => {
             label={'Date Select'}
             variant="fill"
             type="date"
-            {...register('selectedDate')}
+            actualValue={selectedDate}
+            resetDateValue={resetDateValue}
+            {...register('selectedDate', {
+            })}
           />
         </form>
         {authState?.user.userId && (
           <CardPostList
             user={String(authState?.user.userId)}
-            createAt={convertToUnix(selectedDate)}
+            createAt={selectedDate}
           />
         )}
       </MyPostStyle>

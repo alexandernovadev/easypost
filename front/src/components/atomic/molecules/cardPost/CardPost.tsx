@@ -3,8 +3,8 @@ import { CardPostProps } from './cardPost.type'
 import { Typography } from '../../atoms/typography/Typography'
 import { themeLight } from '../../../../themes/themeLight'
 
-const formatDate = (unixTimestamp: number): string => {
-  const date = new Date(unixTimestamp * 1000) // Convertir a milisegundos
+const formatDate = (unixTimestamp: Date): string => {
+  const date = new Date(unixTimestamp) // Convertir a milisegundos
 
   // Formateo de la fecha
   const day = `0${date.getDate()}`.slice(-2)
@@ -24,7 +24,7 @@ const formatDate = (unixTimestamp: number): string => {
 export const CardPost = ({
   text,
   content = 'Write something fun',
-  date = '20/57/2030',
+  date = new Date('2022-01-22T00:25:54.648+00:00'),
   user ,
 }: CardPostProps) => {
   return (
@@ -34,7 +34,7 @@ export const CardPost = ({
         {content}
         <section>
           <div>
-            <Typography text={formatDate(+date)} variant="capion" />
+            <Typography text={formatDate(date)} variant="capion" />
           </div>
           <div>
             <Typography

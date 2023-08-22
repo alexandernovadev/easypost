@@ -2,7 +2,8 @@ import { forwardRef, useState } from 'react'
 import { InputStyle } from './input.style'
 import { InputProps } from './input.type'
 import eyeIcon from '../../../../assets/icons/eye.png'
-// import { CloseCircle } from '../../../../assets/Components/CloseCircle'
+import { CloseCircle } from '../../../../assets/Components/CloseCircle'
+import { DATEDEFAULT } from '../../../../utils/dateDefault'
 // import { ArrowDown } from '../../../../assets/Components/ArrowDown'
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -13,10 +14,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       placeholder = 'text',
       error = '',
       variant = 'default',
+      resetDateValue,
+      actualValue,
       ...props
     },
     ref
   ) => {
+    console.log('actualValue', actualValue && String(actualValue))
+
     const [typeState, setTypeState] = useState(type)
 
     const handleTypeInput = () => {
@@ -34,16 +39,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           placeholder={placeholder}
         />
 
-        {/*
-        <span className='colsesvg'>
-
-        <CloseCircle/>
-        </span>
+        {actualValue && actualValue.toString() !== DATEDEFAULT.dateString && (
+          <span className="colsesvg" onClick={resetDateValue}>
+            <CloseCircle />
+          </span>
+        )}
+        {/*  
         <span className='arrowsbg'>
 
         <ArrowDown />
         </span>
-        */}
+     */}
 
         {type === 'password' && (
           <>

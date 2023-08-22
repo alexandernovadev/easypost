@@ -4,8 +4,6 @@ import { CardPost } from '../cardPost/CardPost'
 import Paginator from '../paginator/Paginator'
 
 const CardPostList = ({ page = 1, limit = 3, user, createAt }: Filters) => {
-  console.log('llego ', createAt)
-
   const { posts, currentPage, totalPages, setFilters, loading, error } =
     useGetPosts({ page, limit, user, createAt })
 
@@ -36,7 +34,7 @@ const CardPostList = ({ page = 1, limit = 3, user, createAt }: Filters) => {
                 key={post._id}
                 text={post.title}
                 content={post.content}
-                date={post.createAt}
+                date={new Date(post.createAt)}
                 user={post.user}
               />
             ))}

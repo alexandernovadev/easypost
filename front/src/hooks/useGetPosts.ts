@@ -5,7 +5,7 @@ export interface Filters {
   page?: number
   limit?: number
   user?: string
-  createAt?: number
+  createAt?: Date
 }
 
 interface User {

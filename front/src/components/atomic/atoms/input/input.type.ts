@@ -6,6 +6,8 @@ export interface InputProps {
   error?: string
   props?: React.InputHTMLAttributes<HTMLInputElement>
   colorLabel?: string
+  resetDateValue?: ()=> void
+  actualValue?: Date
 }
 
 export type InputPropStyle = Pick<
