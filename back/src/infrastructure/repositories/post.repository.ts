@@ -1,4 +1,4 @@
-import { IPost } from '../../domain/entities/post.entity'
+import { IPost, IPostMock } from '../../domain/entities/post.entity'
 import { IPostRepository } from '../../domain/interfaces/post.repository.interface'
 import mongoose, { Schema, Document, model } from 'mongoose'
 
@@ -66,5 +66,12 @@ export class PostRepository implements IPostRepository {
 
   async delete(id: string): Promise<IPost | null> {
     return await Post.findByIdAndDelete(id)
+  }
+
+
+  async inserManyPosts(posts: Array<IPostMock>): Promise<Array<IPostMock> | undefined> {
+    const userPostsMany = await Post.insertMany(posts)
+
+    return userPostsMany
   }
 }

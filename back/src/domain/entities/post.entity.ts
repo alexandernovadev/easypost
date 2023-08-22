@@ -7,3 +7,12 @@ export interface IPost {
 }
 
 
+export interface IPostMock {
+  _id?: number | string  
+  title: string
+  content: string
+  createAt: Date
+  user: string
+}
+
+

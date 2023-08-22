@@ -7,4 +7,6 @@ export interface IUserRepository {
   update(id: string, task: IUser): Promise<IUser | null>
   delete(id: string): Promise<IUser | null>
   findUserByEmail(email: string): Promise<IUser | undefined>
+  inserManyUsers(users: Array<IUser>): Promise<Array<IUser> | undefined>
+  deleteAllUser(): Promise<String| undefined>
 }

@@ -38,4 +38,17 @@ export class UserRepository implements IUserRepository {
     const user = await User.findOne({ email })
     return user || undefined
   }
+
+  async inserManyUsers(users: Array<IUser>): Promise<Array<IUser> | undefined> {
+    const usersMany = await User.insertMany(users)
+
+    return usersMany
+  }
+
+  async deleteAllUser(): Promise<String | undefined> {
+
+    const usersMany = await User.deleteMany()
+
+    return "Users Deleteed"
+  }
 }

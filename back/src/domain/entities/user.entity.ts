@@ -5,6 +5,10 @@ export interface IUser {
   createdAt: number
 }
 
+export interface IUserID extends IUser{
+  _id: string
+}
+
 export interface IUserLogin {
   email: string
   password: string
