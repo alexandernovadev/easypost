@@ -3,7 +3,7 @@
 A modern web application for blogging that employs a hexagonal architecture in the backend, JWT session management, and an interactive frontend. Keep reading to discover more about the technology stack and functionalities.
 
 
-## Website: [VER DEMO](https://easypost-alexsk88.netlify.app/allposthome)
+## Website: [VER DEMO](https://easypost-alexsk88.netlify.app)
 
 
 ## User Demo
