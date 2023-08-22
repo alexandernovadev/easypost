@@ -6,7 +6,7 @@ cd front
 # Cambiar a la rama 'front'
 if git checkout front; then
     # Copiar todo desde 'front' a la raíz
-    cp -r * ..
+    cp -r * 
 
     # Volver a la carpeta raíz
     cd ..
