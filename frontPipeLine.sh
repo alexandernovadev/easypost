@@ -24,7 +24,7 @@ if git checkout front; then
     git add .
 
     # Hacer una confirmación con un mensaje
-    git commit -m "Actualización de la versión de 'front'"
+    git commit -m "Actualización de la versión de 'front 1.2.4'"
 
     # Empujar los cambios a la rama 'front' en el repositorio remoto
     git push origin front
