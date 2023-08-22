@@ -38,7 +38,13 @@ export const MyPosts: React.FC = () => {
       <MyPostStyle>
         <div className="infopagination">
           <span>
-            Showing {pagintatorInfo.show}/{pagintatorInfo.total} Post
+            {pagintatorInfo.show == 0 && pagintatorInfo.total == 0 ? (
+              <> No Results Here </>
+            ) : (
+              <>
+                Showing {pagintatorInfo.show}/{pagintatorInfo.total} Post
+              </>
+            )}
           </span>
         </div>
         <form>

@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { Filters, useGetPosts } from '../../../../hooks/useGetPosts'
 import { CardPost } from '../cardPost/CardPost'
 import Paginator from '../paginator/Paginator'
+import { EmtyPosts } from '../emtyposts/EmtyPosts'
+import { Loader } from '../../atoms/loader/Loader'
 
 interface setDataPagination {
   setTotalAndPost?: (total: number, postActual: number) => void
@@ -35,13 +37,13 @@ const CardPostList = ({
     }
   }, [posts, setTotalAndPost, totalCount])
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <><Loader/></>
   if (error) return <p>Error: {error}</p>
 
   return (
     <>
       {posts?.length === 0 ? (
-        <>No hay posdt</>
+        <EmtyPosts/>
       ) : (
         <div className="cardPostList">
           <section

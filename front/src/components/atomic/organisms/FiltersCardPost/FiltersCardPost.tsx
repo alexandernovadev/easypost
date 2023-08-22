@@ -33,7 +33,13 @@ export const FiltersCardPost = () => {
     <FiltersCardPostStyle>
       <div className="infopagination">
         <span>
-          Showing {show}/{total} Post
+          {show == 0 && total == 0 ? (
+            <> No Results Here </>
+          ) : (
+            <>
+              Showing {show}/{total} Post
+            </>
+          )}
         </span>
       </div>
       <form action="" noValidate>
