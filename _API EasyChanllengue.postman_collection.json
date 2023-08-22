@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "7515c4a6-29d1-4c96-aec1-84243b5e60d5",
+		"name": "_API EasyChanllengue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7109263"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{TOKEN}}",
+								"description": "Mi token de atuh",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Users",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Milan Perez\",\n    \"email\": \"milan.perez@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/64de3dbe9e3f5b37714600b8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"64de3dbe9e3f5b37714600b8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Entries",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/64de3ed79e3f5b37714600be",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"64de3ed79e3f5b37714600be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Molo kiloan\",\n    \"email\": \"molo.kilano@gmail.com\",\n    \"password\": \"password1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/64de3dbe9e3f5b37714600b8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"64de3dbe9e3f5b37714600b8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var json = pm.response.json()",
+									"",
+									"postman.setEnvironmentVariable(\"TOKEN\", json.token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"alex@example.com\",\n    \"password\":\"password1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"a kiloan\",\n    \"email\": \"nsaosmaass.kilano@gmail.com\",\n    \"password\": \"password1234\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Get Posts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{TOKEN}}",
+								"description": "Mi token de atuh",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "myTitle",
+									"disabled": true
+								},
+								{
+									"key": "createAt",
+									"value": "2023-01-22",
+									"disabled": true
+								},
+								{
+									"key": "user",
+									"value": "64de3dbe9e3f5b37714600b8",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FilterPosts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{TOKEN}}",
+								"description": "Mi token de atuh",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Posts",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{TOKEN}}",
+								"description": "Mi token de atuh",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Título del Post 2\",\n    \"content\": \"Contenido completo del post aquí 2.\",\n    \"createAt\": 1629241483000,\n    \"user\": \"64de3dbe9e3f5b37714600b8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/posts/64de60e45d6c0bef3c89ee37",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"64de60e45d6c0bef3c89ee37"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Posts",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{TOKEN}}",
+								"description": "Mi token de atuh",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/posts/64de61545d6c0bef3c89ee3e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"64de61545d6c0bef3c89ee3e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Posts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{TOKEN}}",
+								"description": "Mi token de atuh",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Que pasa contigo \",\n    \"content\": \"6Mucho trabajo \",\n    \"createAt\": \"2023-08-21T12:00:00Z\",\n    \"user\": \"64de3dbe9e3f5b37714600b8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post By User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/posts/user/3534534534634346",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"user",
+								"3534534534634346"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "seedData",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/test",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
