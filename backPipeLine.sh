@@ -12,7 +12,7 @@ if git checkout backend; then
     cp -r "$tmpdir"/* .
 
     # Borrar las carpetas 'back', 'front' y 'node_modules'
-    rm -rf back front node_modules
+    rm -rf back front node_modules README.md
 
     # Agregar los cambios a Git
     git add .
