@@ -6,12 +6,22 @@ import { RequireAuth } from './PrivateRoute'
 import { CreatePostPage } from '../components/atomic/pages/CreatePost/CreatePostPage'
 import { NoRequireAuth } from './PublicRoute'
 import { MyPosts } from '../components/atomic/pages/MyPosts/MyPosts'
+import { TrickyPage } from '../components/atomic/pages/TrickyPage/TrickyPage'
 
 const AppRoutes: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
+
+      <Route
+          path="/"
+          element={
+            <NoRequireAuth>
+              <TrickyPage />
+            </NoRequireAuth>
+          }
+        />
+        {/* <Route
           path="/"
           element={
             <NoRequireAuth>
@@ -59,7 +69,7 @@ const AppRoutes: React.FC = () => {
               <CreatePostPage />
             </RequireAuth>
           }
-        />
+        /> */}
 
         <Route path="*" element={<Navigate to="/" />} />
         {/* <Route path="*" element={<>Page Not Found</>} /> */}

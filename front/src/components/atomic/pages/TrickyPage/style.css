@@ -1,0 +1,67 @@
+.board {
+  display: grid;
+  grid-template-columns: 160px 160px 160px;
+  gap: 5px;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+  font-size: 80px;
+}
+
+.cursor {
+  background-color: #3a5bbc;
+  color: white;
+}
+
+.winner {
+  color: green;
+  font-size: larger;
+}
+
+.loser {
+  color: grey;
+}
+
+/* Responsividad */
+
+@media (max-width: 600px) {
+  .board {
+    grid-template-columns: 30px 30px 30px;
+  }
+
+  .cell {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .board {
+    grid-template-columns: 40px 40px 40px;
+  }
+
+  .cell {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 901px) and (max-width:1200px) {
+  .board {
+    grid-template-columns: 50px 50px 50px;
+  }
+
+  .cell {
+    width: 50px;
+    height: 50px;
+  }
+}
