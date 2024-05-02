@@ -1,0 +1,100 @@
+[
+    {
+        "id": 0,
+        "name": "Zero-Tails",
+        "image": "https://static.wikia.nocookie.net/naruto/images/8/87/Zero_tails.png"
+    },
+    {
+        "id": 1,
+        "name": "Ten-Tails",
+        "image": "https://static.wikia.nocookie.net/naruto/images/e/e6/Ten-Tails_emerges.png"
+    },
+    {
+        "id": 2,
+        "name": "Three-Headed Guardian Beast",
+        "image": "https://static.wikia.nocookie.net/naruto/images/7/79/Three-Heads_after_release.png"
+    },
+    {
+        "id": 3,
+        "name": "A (First Raikage)",
+        "image": "https://static.wikia.nocookie.net/naruto/images/7/70/A.png"
+    },
+    {
+        "id": 4,
+        "name": "A (Second Raikage)",
+        "image": "https://static.wikia.nocookie.net/naruto/images/3/3f/2nd_Raikage.png"
+    },
+    {
+        "id": 5,
+        "name": "A (Third Raikage)",
+        "image": "https://static.wikia.nocookie.net/naruto/images/f/f5/Raikage3.png"
+    },
+    {
+        "id": 6,
+        "name": "A (Fourth Raikage)",
+        "image": "https://static.wikia.nocookie.net/naruto/images/4/4c/Fourth_Raikage_2.png"
+    },
+    {
+        "id": 7,
+        "name": "Abiru",
+        "image": "https://static.wikia.nocookie.net/naruto/images/7/72/Abiru_new.png"
+    },
+    {
+        "id": 8,
+        "name": "Zaku Abumi",
+        "image": "https://static.wikia.nocookie.net/naruto/images/4/40/Zaku_Abumi.png"
+    },
+    {
+        "id": 9,
+        "name": "Harika Aburame",
+        "image": "https://static.wikia.nocookie.net/naruto/images/4/4e/Harika_Aburame.png"
+    },
+    {
+        "id": 10,
+        "name": "Muta Aburame",
+        "image": "https://static.wikia.nocookie.net/naruto/images/1/1f/Aburame_Muta.png"
+    },
+    {
+        "id": 11,
+        "name": "Shibi Aburame",
+        "image": "https://static.wikia.nocookie.net/naruto/images/b/b3/Shibi.png"
+    },
+    {
+        "id": 12,
+        "name": "Shikuro Aburame"
+    },
+    {
+        "id": 13,
+        "name": "Shino Aburame",
+        "image": "https://static.wikia.nocookie.net/naruto/images/9/9c/Shino.png"
+    },
+    {
+        "id": 14,
+        "name": "Tatsuma Aburame",
+        "image": "https://static.wikia.nocookie.net/naruto/images/b/bb/Tatsuma_Aburame.png"
+    },
+    {
+        "id": 15,
+        "name": "Torune Aburame",
+        "image": "https://static.wikia.nocookie.net/naruto/images/3/35/Torune_Anime.png"
+    },
+    {
+        "id": 16,
+        "name": "Yōji Aburame"
+    },
+    {
+        "id": 17,
+        "name": "Ada",
+        "image": "https://static.wikia.nocookie.net/naruto/images/f/f6/Ada_Infobox_Image.png"
+    },
+    {
+        "id": 18,
+        "name": "Agara",
+        "image": "https://static.wikia.nocookie.net/naruto/images/7/71/Agara.png"
+    },
+    {
+        "id": 19,
+        "name": "Agari",
+        "image": "https://static.wikia.nocookie.net/naruto/images/5/5c/Agari.png"
+    }
+]
